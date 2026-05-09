@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2026 at 05:06 AM
+-- Generation Time: May 09, 2026 at 05:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -26,88 +26,16 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `siswa`
 --
-
-CREATE TABLE `siswa` (
-  `nisn` varchar(20) NOT NULL,
-  `nama` varchar(100) DEFAULT NULL,
-  `kelas` varchar(20) DEFAULT NULL,
-  `jurusan` varchar(50) DEFAULT NULL,
-  `status_berkas` varchar(50) DEFAULT NULL,
-  `status_acc` varchar(50) DEFAULT NULL,
-  `keterangan` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `siswa`
---
-
-INSERT INTO `siswa` (`nisn`, `nama`, `kelas`, `jurusan`, `status_berkas`, `status_acc`, `keterangan`) VALUES
-('222310076', 'dandi', '12', 'OTOMOTIF', 'Lengkap', 'Disetujui', 'Berkas Komplit'),
-('89100150', 'FIKA WIDIYA ASRI', 'XI', 'DKV', 'Belum Lengkap', 'Pending', NULL),
-('89102735', 'NOVA RAMDINI', 'XI', 'DKV', 'Belum Lengkap', 'Pending', NULL),
-('89124301', 'BAGAS', 'XI', 'TITL', 'Lengkap', 'Disetujui', 'Berkas Komplit'),
-('89136508', 'SULIS SETIAWATI', 'XI', 'DPIB', 'Belum Lengkap', 'Pending', NULL),
-('89167174', 'VIO AMELIA', 'XI', 'TAV', 'Belum Lengkap', 'Pending', NULL);
+-- Error reading structure for table db_beasiswa.siswa: #1030 - Got error 194 &quot;Tablespace is missing for a table&quot; from storage engine InnoDB
+-- Error reading data for table db_beasiswa.siswa: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `db_beasiswa`.`siswa`' at line 1
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `transaksi`
 --
-
-CREATE TABLE `transaksi` (
-  `id_transaksi` int(11) NOT NULL,
-  `nisn` varchar(20) NOT NULL,
-  `nama_siswa` varchar(100) DEFAULT NULL,
-  `tgl_acc` date DEFAULT NULL,
-  `tgl_cair` date DEFAULT NULL,
-  `nominal` varchar(50) DEFAULT NULL,
-  `keterangan` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`id_transaksi`, `nisn`, `nama_siswa`, `tgl_acc`, `tgl_cair`, `nominal`, `keterangan`) VALUES
-(4, '222310076', 'dandi', '2026-05-07', '2026-05-07', '180000', 'Pencairan Beasiswa Tahap 1');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `siswa`
---
-ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`nisn`);
-
---
--- Indexes for table `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id_transaksi`),
-  ADD KEY `nisn` (`nisn`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `transaksi`
---
-ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`nisn`) REFERENCES `siswa` (`nisn`) ON DELETE CASCADE;
+-- Error reading structure for table db_beasiswa.transaksi: #1030 - Got error 194 &quot;Tablespace is missing for a table&quot; from storage engine InnoDB
+-- Error reading data for table db_beasiswa.transaksi: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `db_beasiswa`.`transaksi`' at line 1
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
