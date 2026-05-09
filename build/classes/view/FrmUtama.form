@@ -56,7 +56,6 @@
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnLaporan" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnPencairan" min="-2" max="-2" attributes="0"/>
                               <Component id="btnApproval" min="-2" max="-2" attributes="0"/>
                               <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
                               <Component id="btnVerifikasi" min="-2" max="-2" attributes="0"/>
@@ -100,12 +99,10 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnVerifikasi" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnPencairan" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnLaporan" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lblUserAktif" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="47" max="32767" attributes="0"/>
               </Group>
@@ -133,6 +130,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="DATA BEASISWA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBeasiswaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVerifikasi">
           <Properties>
@@ -168,14 +168,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Login Sebagai: [Nama User]"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnPencairan">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Pencairan Dana"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPencairanActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnApproval">
           <Properties>
