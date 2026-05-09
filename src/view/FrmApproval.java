@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package view;
-
 import controller.ApprovalController;
 import controller.CetakController;
 import javax.swing.JOptionPane;
@@ -54,6 +53,12 @@ public class FrmApproval extends javax.swing.JInternalFrame {
 
         jLabel2.setText(":");
 
+        txtCariApproval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCariApprovalActionPerformed(evt);
+            }
+        });
+
         tblApproval.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -62,7 +67,7 @@ public class FrmApproval extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "NISN", "Nama Siswa", "Kelas", "Rata-rata Nilai", "Tanggal Verfikasi TU"
+                "NISN", "Nama Siswa", "Kelas", "Berkas", "Tanggal Verfikasi TU"
             }
         ));
         tblApproval.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,6 +191,15 @@ public class FrmApproval extends javax.swing.JInternalFrame {
             cetak.cetakSuratPengantar(nisnTerpilih);
         }
     }//GEN-LAST:event_btnCetakSuratActionPerformed
+
+    private void txtCariApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariApprovalActionPerformed
+         String keyword = txtCariApproval.getText().trim();
+        if (keyword.isEmpty()) {
+            tblApproval.setModel(appCtrl.getSiapApproval());
+        } else {
+            tblApproval.setModel(appCtrl.cariApproval(keyword));
+        }
+    }//GEN-LAST:event_txtCariApprovalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

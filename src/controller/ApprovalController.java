@@ -15,7 +15,7 @@ public class ApprovalController {
 
     // TAMPIL SISWA SIAP DIAPPROVE (status_berkas = Lengkap)
     public DefaultTableModel getSiapApproval() {
-        String[] kolom = {"NISN", "Nama Siswa", "Kelas", "Rata-rata Nilai", "Tanggal Verifikasi TU"};
+        String[] kolom = {"NISN", "Nama Siswa", "Kelas", "Berkas", "Tanggal Verifikasi TU"};
         DefaultTableModel model = new DefaultTableModel(kolom, 0) {
             @Override public boolean isCellEditable(int r, int c) { return false; }
         };
@@ -23,7 +23,7 @@ public class ApprovalController {
         // Kolom rata_nilai & tgl_verifikasi belum ada di tabel siswa saat ini.
         // Tambahkan ALTER TABLE jika diperlukan, atau biarkan kosong dulu.
         String sql = "SELECT nisn, nama, kelas, "
-                   + "'-' AS rata_nilai, "
+                   + "status_berkas, "
                    + "NOW() AS tgl_verifikasi "
                    + "FROM siswa "
                    + "WHERE status_berkas = 'Lengkap' AND status_acc = 'Pending' "
@@ -37,7 +37,7 @@ public class ApprovalController {
                     rs.getString("nisn"),
                     rs.getString("nama"),
                     rs.getString("kelas"),
-                    rs.getString("rata_nilai"),
+                    rs.getString("status_berkas"),
                     rs.getString("tgl_verifikasi")
                 });
             }
@@ -50,12 +50,12 @@ public class ApprovalController {
 
     // CARI SISWA DI DAFTAR APPROVAL
     public DefaultTableModel cariApproval(String keyword) {
-        String[] kolom = {"NISN", "Nama Siswa", "Kelas", "Rata-rata Nilai", "Tanggal Verifikasi TU"};
+        String[] kolom = {"NISN", "Nama Siswa", "Kelas", "Berkas", "Tanggal Verifikasi TU"};
         DefaultTableModel model = new DefaultTableModel(kolom, 0) {
             @Override public boolean isCellEditable(int r, int c) { return false; }
         };
 
-        String sql = "SELECT nisn, nama, kelas, '-' AS rata_nilai, NOW() AS tgl_verifikasi "
+        String sql = "SELECT nisn, nama, kelas, status_berkas, NOW() AS tgl_verifikasi "
                    + "FROM siswa WHERE status_berkas='Lengkap' AND status_acc='Pending' "
                    + "AND nama LIKE ? ORDER BY nama";
         try {
@@ -68,7 +68,7 @@ public class ApprovalController {
                     rs.getString("nisn"),
                     rs.getString("nama"),
                     rs.getString("kelas"),
-                    rs.getString("rata_nilai"),
+                    rs.getString("status_berkas"),
                     rs.getString("tgl_verifikasi")
                 });
             }

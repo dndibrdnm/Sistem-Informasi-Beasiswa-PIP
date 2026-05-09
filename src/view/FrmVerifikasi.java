@@ -49,6 +49,12 @@ public class FrmVerifikasi extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Cari Siswa");
 
+        txtCariVerifikasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCariVerifikasiActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText(":");
 
         tblVerifikasi.setModel(new javax.swing.table.DefaultTableModel(
@@ -189,6 +195,15 @@ public class FrmVerifikasi extends javax.swing.JInternalFrame {
         tblVerifikasi.setModel(verCtrl.getAllUntukVerifikasi());
     }
     }//GEN-LAST:event_btnUpdateStatusActionPerformed
+
+    private void txtCariVerifikasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariVerifikasiActionPerformed
+        String keyword = txtCariVerifikasi.getText().trim();
+        if (keyword.isEmpty()) {
+            tblVerifikasi.setModel(verCtrl.getAllUntukVerifikasi());
+        } else {
+            tblVerifikasi.setModel(verCtrl.cariSiswa(keyword));
+        }
+    }//GEN-LAST:event_txtCariVerifikasiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

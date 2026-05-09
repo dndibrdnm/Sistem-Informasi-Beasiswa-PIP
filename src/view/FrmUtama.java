@@ -60,7 +60,7 @@ public class FrmUtama extends javax.swing.JFrame {
         btnBeasiswa.setEnabled(false); 
         btnApproval.setEnabled(true);
         btnDashboard.setEnabled(true);
-        btnPencairan.setEnabled(false);
+        btnBeasiswa.setEnabled(false);
     }
     }
 
@@ -81,7 +81,6 @@ public class FrmUtama extends javax.swing.JFrame {
         btnLaporan = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         lblUserAktif = new javax.swing.JLabel();
-        btnPencairan = new javax.swing.JButton();
         btnApproval = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -108,6 +107,11 @@ public class FrmUtama extends javax.swing.JFrame {
         });
 
         btnBeasiswa.setText("DATA BEASISWA");
+        btnBeasiswa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBeasiswaActionPerformed(evt);
+            }
+        });
 
         btnVerifikasi.setText("VERIFIKASI BERKAS");
         btnVerifikasi.addActionListener(new java.awt.event.ActionListener() {
@@ -133,13 +137,6 @@ public class FrmUtama extends javax.swing.JFrame {
         lblUserAktif.setBackground(new java.awt.Color(255, 255, 255));
         lblUserAktif.setForeground(new java.awt.Color(255, 255, 255));
         lblUserAktif.setText("Login Sebagai: [Nama User]");
-
-        btnPencairan.setText("Pencairan Dana");
-        btnPencairan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPencairanActionPerformed(evt);
-            }
-        });
 
         btnApproval.setText("APPROVAL KEPSEK");
         btnApproval.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +165,6 @@ public class FrmUtama extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnLaporan)
-                            .addComponent(btnPencairan)
                             .addComponent(btnApproval)
                             .addComponent(btnLogout)
                             .addComponent(btnVerifikasi)
@@ -205,12 +201,10 @@ public class FrmUtama extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVerifikasi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPencairan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLaporan)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogout)
-                .addGap(34, 34, 34)
+                .addGap(30, 30, 30)
                 .addComponent(lblUserAktif)
                 .addContainerGap(47, Short.MAX_VALUE))
         );
@@ -289,17 +283,17 @@ public class FrmUtama extends javax.swing.JFrame {
         cetak.cetakLaporanPenerima();
     }//GEN-LAST:event_btnLaporanActionPerformed
 
-    private void btnPencairanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPencairanActionPerformed
-        FrmPencairan p = new FrmPencairan();
-        desktopUtama.add(p);
-        p.setVisible(true);
-    }//GEN-LAST:event_btnPencairanActionPerformed
-
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         FrmLogin Login = new FrmLogin();
         Login.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnBeasiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeasiswaActionPerformed
+        FrmPencairan p = new FrmPencairan();
+        desktopUtama.add(p);
+        p.setVisible(true);
+    }//GEN-LAST:event_btnBeasiswaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,7 +336,6 @@ public class FrmUtama extends javax.swing.JFrame {
     private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnLaporan;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnPencairan;
     private javax.swing.JButton btnSiswa;
     private javax.swing.JButton btnVerifikasi;
     private javax.swing.JDesktopPane desktopUtama;
